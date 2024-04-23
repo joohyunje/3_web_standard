@@ -1,0 +1,30 @@
+/* HTML 기본 폰트 사이즈 설정 */
+html {
+    font-size: 16px;
+}
+
+/* 상위 요소 폰트 사이즈 설정 */
+.container {
+    font-size: 30px;
+}
+
+/* em 테스트 */
+.em {
+    font-size: 2em; /* em 은 상위 요소에서 상대 크기! 30 * 2 = 60px */
+}
+
+.rem {
+    font-size: 2rem;
+}
+
+.view {
+    width: 50vw;
+    height: 20vh;
+    background-color: aqua;
+    font-size: 2vh; /* 폰트 크기가 높이의 2% */
+}
+
+.percent {
+    width: 80%;
+    background-color: aquamarine;
+}
