@@ -64,3 +64,16 @@ body {
     padding: 10px;
     text-align: center;
 }
+
+@media (max-width: 1200px) {
+    .grid-container {
+        display: grid;
+        grid-template-areas:
+            "header"
+            "sidebar"
+            "content"
+            "footer";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr auto;
+    }
+}
