@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQueryTask</title>
+    <style>
+        ul {
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>할 일 목록</h1>
+    <ul class="todo">
+        <li>
+            <input type="checkbox" class="check">
+            <span class="todo-item">할 일 1</span>
+            <button class="delete">X</button>
+        </li>
+        <li>
+            <input type="checkbox" class="check">
+            <span class="todo-item">할 일 2</span>
+            <button class="delete">X</button>
+        </li>
+    </ul>
+    <div>
+        <label for="new-todo"></label>
+        <input type="text" id="new-todo" placeholder="할 일 입력">
+        <button id="add-btn">추가</button>
+        <button id="select-delete">선택 요소 삭제</button>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function(){
+        let $todo = $('.todo')
+        let $btn = $('#btn')
+
+       $('#add-btn').on('click', function(){
+            let newTodo = $('#new-todo').val();
+
+            if(newTodo){
+                $todo.append(
+                    `<li><input type="checkbox" class="check">
+                    <span class="todo-item">` + newTodo + `</span>
+                    <button class="delete">X</button></li>`
+                )
+                $('#new-todo').val('');
+            }
+            else{
+                alert('할 일을 입력하세요!')
+            }
+       });
+       
+       $('#new-todo').on('keypress', function(e){
+            console.log(e.keyCode)
+            if(e.which === 13){
+                $('#add-btn').click();
+            }
+        })
+
+        $todo.on('click', '.delete', function(){
+            $(this).closest('li').remove();
+        })
+
+        $('#select-delete').on('click', function(){
+            $('.todo .check:checked').closest('li').remove();
+        })
+    });
+</script>
+</html>
